@@ -540,8 +540,6 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 sm:p-8 font-inter">
-      {/* Tailwind CSS is loaded here for single-file HTML compilation */}
-      <script src="https://cdn.tailwindcss.com"></script>
       <header className="max-w-6xl mx-auto mb-8 text-center">
         <h1 className="text-4xl font-extrabold text-gray-900 mb-2">
           GEDCOM Tree Comparator
