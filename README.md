@@ -1,6 +1,12 @@
 # GEDCOM_Gemini
 GEDCOM Compare tool made using Gemini
 
+## Overview
+
+This is a React-based web application that allows you to upload and compare two GEDCOM (genealogy) files side-by-side. The application parses individual records and highlights differences based on human-meaningful data (name, sex, birth details).
+
+**Note**: The Gemini API integration for bio generation has been removed. The API_KEY field in the code is a placeholder and is not currently used.
+
 ## Docker Deployment
 
 This application can be easily deployed using Docker.
@@ -56,6 +62,16 @@ docker rm gedcom-gemini-app
 - The application runs on port 3000 by default
 - To use a different port, modify the port mapping in `docker-compose.yml` or the `docker run` command
 - Example for port 8080: `-p 8080:3000`
+
+### CI/Testing Environments
+
+If you encounter SSL certificate issues in corporate or CI environments, you can use the alternative `Dockerfile.ci`:
+
+```bash
+docker build -f Dockerfile.ci -t gedcom-gemini .
+```
+
+**Warning**: The `Dockerfile.ci` disables SSL verification and should ONLY be used in trusted CI/testing environments, never for production builds.
 
 ## Local Development
 
