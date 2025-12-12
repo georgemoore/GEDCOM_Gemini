@@ -65,13 +65,20 @@ docker rm gedcom-gemini-app
 
 ### CI/Testing Environments
 
-If you encounter SSL certificate issues in corporate or CI environments, you can use the alternative `Dockerfile.ci`:
+If you encounter SSL certificate issues in corporate or CI environments, you can use the alternative CI configuration:
 
+**Option 1: Using Docker Compose**
 ```bash
-docker build -f Dockerfile.ci -t gedcom-gemini .
+docker compose -f docker-compose.ci.yml up -d
 ```
 
-**Warning**: The `Dockerfile.ci` disables SSL verification and should ONLY be used in trusted CI/testing environments, never for production builds.
+**Option 2: Using Docker directly**
+```bash
+docker build -f Dockerfile.ci -t gedcom-gemini .
+docker run -d -p 3000:3000 gedcom-gemini
+```
+
+**Warning**: The CI configuration (`Dockerfile.ci` and `docker-compose.ci.yml`) disables SSL verification and should ONLY be used in trusted CI/testing environments, never for production builds.
 
 ## Local Development
 
