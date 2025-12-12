@@ -1,0 +1,14 @@
+# Docker Compose file for CI/testing environments
+# Uses Dockerfile.ci with SSL workarounds
+
+services:
+  gedcom-gemini:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    container_name: gedcom-gemini-app
